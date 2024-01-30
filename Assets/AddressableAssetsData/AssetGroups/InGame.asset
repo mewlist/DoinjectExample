@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: InGame
+  m_EditorClassIdentifier: 
+  m_GroupName: InGame
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d62d1a4b2dca51443910b62ac92f2c2b
+  m_SerializeEntries:
+  - m_GUID: f4a45708c10628b4d9ca00da12f00fe8
+    m_Address: Assets/SampleApplication/InGame/Scenes/InGame.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af54d9e87676fce43942c578b7363f7f
+    m_Address: Assets/SampleApplication/InGame/UI/Result/Animations
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7599d7d61dc476b4985053fc8b172ee5
+    m_Address: Assets/SampleApplication/InGame/Scenes/InGame/GlobalVolumeProfile.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2bcbf7376ab3aa499367f67992ceec8
+    m_Address: Assets/SampleApplication/InGame/Character/Prefabs/Character.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95e580725538d6b4885b99ddb2638bfc
+    m_Address: Assets/SampleApplication/InGame/Character/Installers/CharacterInstaller.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d95ca8f4c27d59b44b2e625d7268e0f1
+    m_Address: Assets/SampleApplication/InGame/UI/Result/Prefabs
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 80dfa207400a2e94a8978b8a92246101, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: cdbe36e8f700a384d836f8a5101de50a, type: 2}
+    - {fileID: 11400000, guid: 2cdc4a7a6750f7b47bee6bfa5b9905bb, type: 2}

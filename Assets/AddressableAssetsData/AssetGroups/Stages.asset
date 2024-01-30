@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Stages
+  m_EditorClassIdentifier: 
+  m_GroupName: Stages
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f03ab3818f9dc9f479fb1d2561ccf9e7
+  m_SerializeEntries:
+  - m_GUID: d7fcf6b587a48fa42a5e59c523f7f359
+    m_Address: Assets/SampleApplication/InGame/Stages/Scenes/Stage1.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e1ec1e012e82634aa620ace69812c94
+    m_Address: Assets/SampleApplication/InGame/Stages/Common/ProBuilder Default URP.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bef626029b076b4786cdba89fa6eb61
+    m_Address: Assets/SampleApplication/InGame/Stages/Scenes/Stage2.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 80dfa207400a2e94a8978b8a92246101, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 22e9e853155033e459e8beeed4717d38, type: 2}
+    - {fileID: 11400000, guid: f512fc33912626944ba67872f6a02148, type: 2}
