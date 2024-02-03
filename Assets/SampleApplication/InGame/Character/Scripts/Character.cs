@@ -42,6 +42,6 @@ public class Character : MonoBehaviour, IInjectableComponent
     private void Spawn()
     {
         var spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-        CharacterAction.Teleport(spawnPoint.transform.position);
+        if (spawnPoint) CharacterAction.Teleport(spawnPoint.transform.position);
     }
 }

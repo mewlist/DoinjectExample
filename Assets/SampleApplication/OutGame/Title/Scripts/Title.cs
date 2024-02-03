@@ -1,5 +1,6 @@
-using Cysharp.Threading.Tasks;
+using System.Threading.Tasks;
 using Doinject;
+using Mew.Core.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,7 +25,7 @@ public class Title : MonoBehaviour, IInjectableComponent
             .AddTo(this);
     }
 
-    private async UniTask LoadStageSelectScene()
+    private async Task LoadStageSelectScene()
     {
         await SceneManagement.LoadStageSelect();
     }
