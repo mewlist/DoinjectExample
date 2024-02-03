@@ -245,18 +245,18 @@
       "url": "https://packages.unity.com"
     },
     "st.mewli.core": {
-      "version": "https://github.com/mewlist/MewCore.git?path=#v0.1.1",
+      "version": "https://github.com/mewlist/MewCore.git?path=#v0.1.2",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "cc5aec8445b6b1e36f6833d9fda239f472ed5578"
+      "hash": "8cebf82cc3e948d7d5181d4fcf947ba1bdf38a89"
     },
     "st.mewli.di": {
-      "version": "https://github.com/mewlist/Doinject.git?path=#v0.3.1",
+      "version": "https://github.com/mewlist/Doinject.git?path=#v0.4.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "0b8f7124320e609e0a7a1ad2d016e964dea451d0"
+      "hash": "068092c96e6d58bbbf2e470b701863491d253fa1"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

@@ -14,6 +14,12 @@ public class Character : MonoBehaviour, IInjectableComponent
         InGameEvent = inGameEvent;
     }
 
+    [OnInjected]
+    public void OnInjected()
+    {
+        Spawn();
+    }
+
     public void StartAction()
     {
         CharacterAction.InputEnabled = true;
@@ -23,8 +29,7 @@ public class Character : MonoBehaviour, IInjectableComponent
     {
         if (other.gameObject.CompareTag("Respawn"))
         {
-            var spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-            CharacterAction.Teleport(spawnPoint.transform.position);
+            Spawn();
         }
 
         if (other.gameObject.CompareTag("Finish"))
@@ -32,5 +37,11 @@ public class Character : MonoBehaviour, IInjectableComponent
             CharacterAction.InputEnabled = false;
             InGameEvent.OnGoal.Invoke();
         }
+    }
+
+    private void Spawn()
+    {
+        var spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+        CharacterAction.Teleport(spawnPoint.transform.position);
     }
 }

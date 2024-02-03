@@ -46,6 +46,7 @@ public class InGame : MonoBehaviour, IInjectableComponent
         if (blackoutCurtain) blackoutCurtain.FadeIn().Forget();
     }
 
+    [OnInjected]
     public async Task OnInjected()
     {
         if (InGameArg is not null)

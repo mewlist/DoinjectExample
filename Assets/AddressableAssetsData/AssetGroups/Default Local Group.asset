@@ -47,6 +47,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20f63dd932c1c4f44b40699b6552e160
+    m_Address: Assets/SampleApplication/Application/Scenes/Application.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abdd357eb1fb5bc4db447ffd8bd0770b
+    m_Address: Assets/SampleApplication/SceneManagement/Prefabs/SceneManagement.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 80dfa207400a2e94a8978b8a92246101, type: 2}
   m_SchemaSet:
