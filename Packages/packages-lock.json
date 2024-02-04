@@ -245,11 +245,11 @@
       "hash": "8d4652d2b682da9b084dea6d71fbfe9085296174"
     },
     "st.mewli.di": {
-      "version": "https://github.com/mewlist/Doinject.git?path=#v0.4.0",
+      "version": "https://github.com/mewlist/Doinject.git?path=#v0.4.2",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "068092c96e6d58bbbf2e470b701863491d253fa1"
+      "hash": "858de8cc2508c368a9a0cd4d631e3c2eab28f0a2"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

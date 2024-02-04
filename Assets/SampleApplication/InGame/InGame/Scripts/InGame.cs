@@ -65,8 +65,7 @@ public class InGame : MonoBehaviour, IInjectableComponent
 
     private async Task ReturnToStageSelect()
     {
-        var resultUI = await ResultUIFactory.CreateAsync();
-        resultUI.Show();
+        await ResultUIFactory.CreateAsync();
 
         await Task.Delay(TimeSpan.FromSeconds(4f));
         if (SceneManagement) await SceneManagement.LoadStageSelect();
