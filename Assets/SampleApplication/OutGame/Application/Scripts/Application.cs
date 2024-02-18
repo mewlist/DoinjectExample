@@ -6,7 +6,7 @@ public class Application : MonoBehaviour, IInjectableComponent
     public IContext Context { get; set; }
 
     [Inject]
-    public async void Construct(IContext context)
+    public void Construct(IContext context)
     {
         Context = context;
     }

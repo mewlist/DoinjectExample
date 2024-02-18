@@ -33,22 +33,28 @@ public class BlackoutCurtain : MonoBehaviour
 
     public async Task FadeOut()
     {
-        await taskQueue.EnqueueAsync(async _ =>
+        await taskQueue.EnqueueAsync(async ct =>
         {
             isOn = true;
             target.raycastTarget = true;
             while (target.color.a < 1f)
-                await TaskHelper.NextFrame();
+            {
+                destroyCancellationToken.ThrowIfCancellationRequested();
+                await TaskHelper.NextFrame(ct);
+            }
         });
     }
 
     public async Task FadeIn()
     {
-        await taskQueue.EnqueueAsync(async _ =>
+        await taskQueue.EnqueueAsync(async ct =>
         {
             isOn = false;
             while (target.color.a > 0f)
-                await TaskHelper.NextFrame();
+            {
+                destroyCancellationToken.ThrowIfCancellationRequested();
+                await TaskHelper.NextFrame(ct);
+            }
             target.raycastTarget = false;
         });
     }
