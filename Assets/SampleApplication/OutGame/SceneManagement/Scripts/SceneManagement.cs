@@ -18,7 +18,7 @@ public class SceneManagement : MonoBehaviour, IInjectableComponent
         IContext context,
         [Optional] BlackoutCurtain blackoutCurtain)
     {
-        TaskQueue.Start(destroyCancellationToken);
+        TaskQueue.DisposeWith(destroyCancellationToken);
         Context = context;
         BlackoutCurtain = blackoutCurtain;
     }

@@ -14,7 +14,7 @@ public class BlackoutCurtain : MonoBehaviour
 
     private void Awake()
     {
-        taskQueue.Start(destroyCancellationToken);
+        taskQueue.DisposeWith(destroyCancellationToken);
     }
 
     private void Start()
