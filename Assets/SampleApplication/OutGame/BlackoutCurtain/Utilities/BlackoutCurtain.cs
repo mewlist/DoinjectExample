@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Doinject;
 using Mew.Core.TaskHelpers;
 using Mew.Core.Tasks;
 using UnityEngine;
@@ -6,28 +7,32 @@ using UnityEngine.UI;
 
 public class BlackoutCurtain : MonoBehaviour
 {
-    [SerializeField] private Graphic target;
+    [SerializeField] private CanvasGroup target;
     [SerializeField] private bool isOn;
     [SerializeField] private float speed = 1f;
+    [SerializeField] private Slider progression;
 
-    private readonly TaskQueue taskQueue = new TaskQueue();
+    private readonly TaskQueue taskQueue = new();
 
     private void Awake()
     {
         taskQueue.DisposeWith(destroyCancellationToken);
     }
 
-    private void Start()
+    [OnInjected]
+    // ReSharper disable once UnusedMember.Global
+    public void Construct()
     {
-        isOn = true;
-        target.raycastTarget = true;
         SetAlpha(1f);
+        isOn = true;
+        target.interactable = true;
+        target.blocksRaycasts = true;
     }
 
     private void Update()
     {
         var delta = Time.unscaledDeltaTime * speed;
-        var a = Mathf.Clamp01(target.color.a + (isOn ? delta : -delta));
+        var a = Mathf.Clamp01(target.alpha + (isOn ? delta : -delta));
         SetAlpha(a);
     }
 
@@ -36,8 +41,9 @@ public class BlackoutCurtain : MonoBehaviour
         await taskQueue.EnqueueAsync(async ct =>
         {
             isOn = true;
-            target.raycastTarget = true;
-            while (target.color.a < 1f)
+            target.interactable = true;
+            target.blocksRaycasts = true;
+            while (isOn && target.alpha < 1f)
             {
                 destroyCancellationToken.ThrowIfCancellationRequested();
                 await TaskHelper.NextFrame(ct);
@@ -50,18 +56,29 @@ public class BlackoutCurtain : MonoBehaviour
         await taskQueue.EnqueueAsync(async ct =>
         {
             isOn = false;
-            while (target.color.a > 0f)
+            while (!isOn && target.alpha > 0f)
             {
                 destroyCancellationToken.ThrowIfCancellationRequested();
                 await TaskHelper.NextFrame(ct);
             }
-            target.raycastTarget = false;
+            target.interactable = false;
+            target.blocksRaycasts = false;
+            ShowProgression(false);
         });
+    }
+
+    public void SetProgression(float value)
+    {
+        progression.value = value;
+    }
+
+    public void ShowProgression(bool value)
+    {
+        progression.gameObject.SetActive(value);
     }
 
     private void SetAlpha(float alpha)
     {
-        var color = target.color;
-        target.color = new Color(color.r, color.g, color.b, alpha);
+        target.alpha = alpha;
     }
 }

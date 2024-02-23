@@ -26,11 +26,13 @@ public class StageSelect : MonoBehaviour, IInjectableComponent
             .Select((x, i) => x.OnClickAsObservable().Select(_ => i))
             .Merge()
             .Take(1)
-            .Subscribe(i => LoadStage(i).Forget());
+            .Subscribe(i => LoadStage(i).Forget())
+            .AddTo(this);
     }
 
     private async Task LoadStage(int stageIndex)
     {
+        // Pass InGameArg to InGame scene.
         await SceneManagement.LoadInGame(new InGameArg { StageIndex = stageIndex });
     }
 }

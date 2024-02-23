@@ -1,6 +1,8 @@
+using System;
 using System.Threading.Tasks;
 using Doinject;
 using Mew.Core.Assets;
+using Mew.Core.TaskHelpers;
 using Mew.Core.Tasks;
 using UnityEngine;
 
@@ -10,10 +12,11 @@ public class SceneManagement : MonoBehaviour, IInjectableComponent
     [SerializeField] private UnifiedScene titleScene = default;
     [SerializeField] private UnifiedScene inGameScene = default;
 
-    public IContext Context { get; set; }
+    private IContext Context { get; set; }
     private BlackoutCurtain BlackoutCurtain { get; set; }
 
     [Inject]
+    // ReSharper disable once UnusedMember.Global
     public void Construct(
         IContext context,
         [Optional] BlackoutCurtain blackoutCurtain)
@@ -24,6 +27,7 @@ public class SceneManagement : MonoBehaviour, IInjectableComponent
     }
 
     [OnInjected]
+    // ReSharper disable once UnusedMember.Global
     public async Task OnInjected()
     {
         if (Context.IsReverseLoaded)
@@ -52,10 +56,43 @@ public class SceneManagement : MonoBehaviour, IInjectableComponent
     {
         await TaskQueue.EnqueueAsync(async ct =>
         {
-            if (BlackoutCurtain) await BlackoutCurtain.FadeOut();
-            await Context.SceneContextLoader.UnloadAllScenesAsync();
-            await Context.SceneContextLoader.LoadAsync(to, active: true, contextArg);
-            if (BlackoutCurtain) await BlackoutCurtain.FadeIn();
+            try
+            {
+                // start loading
+                BlackoutCurtain.SetProgression(0f);
+                if (BlackoutCurtain) await BlackoutCurtain.FadeOut();
+
+                // show progress bar
+                BlackoutCurtain.ShowProgression(true);
+
+                // unload scenes
+                await Context.SceneContextLoader.UnloadAllScenesAsync();
+                BlackoutCurtain.SetProgression(0.1f);
+
+                // start loading new scene
+                var contextLoader = Context.SceneContextLoader;
+                var loadTask = contextLoader.LoadAsync(to, active: true, contextArg);
+
+                // update loading progress bar
+                while (!destroyCancellationToken.IsCancellationRequested &&
+                       !loadTask.IsCompleted)
+                {
+                    BlackoutCurtain.SetProgression(0.1f + 0.9f * contextLoader.Progression);
+                    await TaskHelper.NextFrame(destroyCancellationToken);
+                }
+
+                // loading finished
+                BlackoutCurtain.SetProgression(1f);
+                if (BlackoutCurtain) await BlackoutCurtain.FadeIn();
+
+                // handle cancellation while loading
+                destroyCancellationToken.ThrowIfCancellationRequested();
+            }
+            catch (OperationCanceledException e)
+            {
+                await Context.SceneContextLoader.UnloadAllScenesAsync();
+                throw;
+            }
         });
     }
 }
