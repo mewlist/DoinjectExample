@@ -50,21 +50,24 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+    <AddressablesSceneKey>k__BackingField: {fileID: 0}
     <SceneReference>k__BackingField:
       <SceneName>k__BackingField: 
   titleScene:
     <SceneAssetReference>k__BackingField:
-      m_AssetGUID: aa1b0e711cf389d459ce34a6c364918c
+      m_AssetGUID: 
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+    <AddressablesSceneKey>k__BackingField: {fileID: 0}
     <SceneReference>k__BackingField:
-      <SceneName>k__BackingField: 
+      <SceneName>k__BackingField: Title
   inGameScene:
     <SceneAssetReference>k__BackingField:
       m_AssetGUID: f4a45708c10628b4d9ca00da12f00fe8
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+    <AddressablesSceneKey>k__BackingField: {fileID: 0}
     <SceneReference>k__BackingField:
       <SceneName>k__BackingField: 

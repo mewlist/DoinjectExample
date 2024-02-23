@@ -387,14 +387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa0708d4ffcdf2459194353e5321835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundScene:
-    <SceneAssetReference>k__BackingField:
-      m_AssetGUID: 608678a7f1ae59a4eb13d15e4e9127dc
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-    <SceneReference>k__BackingField:
-      <SceneName>k__BackingField: 
   startButton: {fileID: 50604400}
 --- !u!4 &494533826
 Transform:
@@ -674,6 +666,7 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+    <AddressablesSceneKey>k__BackingField: {fileID: 0}
     <SceneReference>k__BackingField:
       <SceneName>k__BackingField: 
 --- !u!114 &1432329915
@@ -722,6 +715,7 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+    <AddressablesSceneKey>k__BackingField: {fileID: 0}
     <SceneReference>k__BackingField:
       <SceneName>k__BackingField: 
 --- !u!1 &1439070337
